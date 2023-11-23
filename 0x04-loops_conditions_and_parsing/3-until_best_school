@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-i=00
+#Print "Best School" 10 times using an until loop
+i=0
 until [ $i -eq 10 ]
 do
 	echo "Best School"
