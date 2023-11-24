@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# does some pid displaying
+
+pgrep bash -l
