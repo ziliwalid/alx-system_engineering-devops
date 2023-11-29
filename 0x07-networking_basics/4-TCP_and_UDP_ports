@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# script that listens to ports
+#+ listenes to sockets
+#+ shows PID
+
+sudo netstat -lp
