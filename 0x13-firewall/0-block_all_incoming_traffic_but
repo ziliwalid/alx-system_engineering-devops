@@ -1,19 +1,15 @@
 #!/usr/bin/env bash
-# Ensure the container runs as the nginx user and listens on all active IPs on port 8080
+# installs a fire wall
 
-# Update the nginx configuration file to use the 'nginx' user
-sudo sed -i 's/#user www-data/user nginx/' /etc/nginx/nginx.conf
+sudo apt-get -y install ufw
+sudo sed -i "s/IPV6=no/IPV6=yes/" /etc/default/ufw
+sudo ufw default allow outgoing
+sudo ufw default deny incoming
 
-# Adjust ownership and permissions of the configuration file
-chmod 700 /etc/nginx/nginx.conf
-chown nginx:nginx /etc/nginx/nginx.conf
+# configuration
+sudo ufw allow ssh
+sudo ufw allow http
+sudo ufw allow https
 
-# Update the nginx configuration to listen on port 8080
-sudo sed -i 's/80 default_server/8080 default_server/' /etc/nginx/sites-available/default
-
-# Check for any processes currently using port 8080 and terminate them
-pkill apache2
-
-# Restart the nginx service with the updated configuration
-sudo -u nginx service nginx restart
-
+# start
+sudo ufw enable
