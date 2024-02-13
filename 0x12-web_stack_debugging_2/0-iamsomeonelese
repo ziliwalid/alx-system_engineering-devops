@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# runs a non user
+sudo -u "$1" whoami
