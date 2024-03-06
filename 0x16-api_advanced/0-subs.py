@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-gets the subs from a sub redit
+gets the subs from a sub redit on code 200
 """
 
 import requests
@@ -12,7 +12,6 @@ def number_of_subscribers(subreddit):
     uri = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     headers = {"User-Agent": "Mozilla/5.0"}
     res = requests.get(uri, headers=headers, allow_redirects=False)
-    """code 200 means ok"""
     if res.status_code == 200:
         data = res.json()
         subs = data['data']['subscribers']
