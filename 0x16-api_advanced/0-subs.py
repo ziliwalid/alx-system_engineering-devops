@@ -2,9 +2,7 @@
 """
 gets the subs from a sub redit on code 200
 """
-
 import requests
-
 
 
 def number_of_subscribers(subreddit):
