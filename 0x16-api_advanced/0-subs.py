@@ -1,13 +1,10 @@
 #!/usr/bin/python3
-
-
-
 """
 gets the subs from a sub redit
 """
 
-
 import requests
+
 
 
 def number_of_subscribers(subreddit):
