@@ -1,10 +1,6 @@
-# replaces line in a file given
+# Fixes bad `phpp` extensions to `php` in the WordPress file `wp-settings.php`.
 
-$filePath = '/var/www/html/wp-settings.php'
-
-# turnes `phpp` extensions to `php` in the file `wp-settings.php`
-
-exec { 'replace_line':
-  command => "sed -i 's/phpp/php/g' ${filePath}",
-  path    => ['/bin','/usr/bin']
+exec { 'fix-wordpress':
+  command => 'sed -i s/phpp/php/g /var/www/html/wp-settings.php',
+  path    => '/usr/local/bin/:/bin/'
 }
